@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>评分系统</title>
+<style>
+body,h2{padding:0; margin:0; font-size:18px;}
+h2{ display:inline-block;}
+img{ vertical-align:top; border:none; margin:0;}
+</style>
+<script>
+window.onload = function(){
+	var aImg = document.getElementsByTagName('img');
+	var oEm = document.getElementsByTagName('em')[0];	
+	var arrImg = ['img/6.1.jpg','img/6.2.jpg','img/6.3.jpg'];
+	for(var i=0;i<aImg.length ;i++){
+		aImg[i].index=i;
+		aImg[i].strImg = arrImg[0];	
+	}
+	
+	for(var i=0;i<2 ;i++){
+		
+		aImg[i].onmouseover =  function(){
+			for(var i=0;i< this.index+1 ;i++)
+				aImg[i].src= arrImg[2];	
+			
+		}
+		aImg[i].onclick =  function(){
+			for(var i=0;i< this.index+1 ;i++){
+				aImg[i].src = arrImg[2];	
+				aImg[i].strImg = arrImg[2];
+			}
+		}
+		aImg[i].onmouseout =  function(){
+			for(var i=0;i< this.index+1 ;i++)
+				aImg[i].src=this.strImg;	
+			
+		}
+	}
+	for(var i=2;i<aImg.length ;i++){
+		
+		aImg[i].onmouseover =  function(){
+			for(var i=0;i< this.index+1 ;i++)
+				aImg[i].src= arrImg[1];	
+			
+		}
+		aImg[i].onclick =  function(){
+			for(var i=0;i< this.index+1 ;i++){
+				aImg[i].src = arrImg[1];	
+				aImg[i].strImg = arrImg[1];
+			}
+		}
+		aImg[i].onmouseout =  function(){
+			for(var i=0;i< this.index+1 ;i++)
+				aImg[i].src= this.strImg;	
+			
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+<div id="div1">
+ <h2>总体评分：</h2>
+ <img src="img/6.1.jpg"/>
+ <img src="img/6.1.jpg"/>
+ <img src="img/6.1.jpg"/>
+ <img src="img/6.1.jpg"/>
+ <img src="img/6.1.jpg"/>
+ <em></em>
+</div>
+</body>
+</html>

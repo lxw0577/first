@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+body,ul,h2{ padding:0; margin:0; font-size:14px;}
+li{ list-style:none;}
+#ul1{ width:200px; margin:0 auto; background:#FFF;border:#000 1px solid;}
+#ul1 h2{ width:200px; height:20px; line-height:20px; text-align:center; background:url(img/ico1.gif) no-repeat 15px center #CC99FF;}
+#ul1 .active{ background:url(img/ico2.gif) no-repeat 15px center #FFFF33;}
+#ul1 ul{ display: none;}
+#ul1 ul li{width:200px; height:20px; line-height:20px; text-indent:50px;  border-top:#000 1px solid;}
+#ul1 ul .li{ background:#3F3;}
+</style>
+
+</head>
+
+<body>
+
+<ul id="ul1">
+    <li>
+        <h2>我的好友</h2>
+        <ul>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </li>
+    <li>
+        <h2>我的</h2>
+        <ul>
+            <li>2</li>
+            <li>3</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </li>
+    <li>
+        <h2>我的好</h2>
+        <ul>
+            <li>4</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </li>
+</ul>
+
+
+</body>
+<script>
+
+var oUl = document.getElementById('ul1');
+var aH2 = oUl.getElementsByTagName('h2');
+var aUl = oUl.getElementsByTagName('ul');
+var aLi = null;
+var arrLi = [];
+var oldLi = null;
+var oldH2 = null;
+var oldUl = null;
+
+for( var i=0;i<aH2.length;i++ ){
+	aH2[i].index = i;
+	aH2[i].onclick = function(){
+		if(this.className==''){
+			aUl[this.index].style.display = 'block';
+			if( oldUl != null){
+				oldUl.style.display = 'none';
+				oldH2.className = '';
+			}
+			this.className = 'active';
+			oldH2 = this;
+			oldUl = aUl[this.index];
+		}else{
+			aUl[this.index].style.display = 'none';
+			this.className = ''; 
+		}
+	}
+}//展开 关闭
+
+for( var i=0;i<aUl.length;i++ ){
+	aLi = aUl[i].getElementsByTagName('li');
+	for( var j=0;j<aLi.length;j++ ){
+		arrLi.push(aLi[j]);
+	}
+}// 找Li元素
+
+for(var i=0;i<arrLi.length;i++){
+	arrLi[i].onclick =	function(){
+		if( oldLi != null)
+			oldLi.className ='';
+		this.className = 'li';
+		oldLi = this;
+	}
+}
+
+
+</script>
+</html>

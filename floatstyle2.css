@@ -1,0 +1,10 @@
+/* CSS Document */
+
+
+.warp{ margin:90px auto; position:relative;}
+.warp div{ background:blue; width:100px; height:100px;}
+.box1{ position:absolute; left:0;top:0;}
+.box2{ position:absolute; left:50px;top:50px;}
+div.box3{ position:absolute; left:100px;top:100px; background:yellow;}
+.box4{ position:absolute; left:150px;top:150px;}
+.box5{ position:absolute; left:200px;top:200px;}

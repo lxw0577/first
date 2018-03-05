@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<style>
+.all{ margin:40px auto 0; width:320px;}
+#div2{position:relative; }
+#img1 { width:300px; height:300px; border:#ccc 10px solid;}
+#div2 p{ width:300px; height:20px; line-height:20px; font-size:12px; text-align:center; position:absolute;background:#000;  opacity:0.4;left:10px; margin:0; filter:alpha(opacity=40); color:#fff;}
+#div2 a{ position:absolute; width:20px; height:20px; border:5px solid #93F; top:145px; opacity:0.5; display:block; text-align:center; line-height:20px; font-weight:bold;filter:alpha(opacity=50); text-decoration:none;color:#fff;}
+#prev{ left:20px;}
+#next{ right:20px;}
+#p1{ top:10px;}
+#p2{ bottom:10px;}
+</style>
+
+<script>
+window.onload = function(){
+	var oBtn1 = document.getElementById('Btn1');
+	var oBtn2 = document.getElementById('Btn2');
+	var oSpan = document.getElementById('span1');
+	var oP1 = document.getElementById('p1');
+	var oP2 = document.getElementById('p2');
+	var oImg = document.getElementById('img1');
+	var oPrev = document.getElementById('prev');
+	var oNext = document.getElementById('next');
+	var num = 0;
+	var obool ;
+	var arr = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+	var arr1 =['第一张','第2张','第3张','第4张'];
+	oBtn1.onclick = function(){ 
+		oSpan.innerHTML = '图片可以从最后一张到第一张';
+		oPrev.onclick = function(){
+			if( num>=1)
+				num --; 
+			else 
+				num=3 
+			oImg.src = arr[num];
+			oP2.innerHTML = arr1[num];
+			oP1.innerHTML = num+1 +'/' + arr.length;
+		}
+		oNext.onclick = function(){
+			if( num<=2)
+				num ++; 
+			else 
+				num=0
+			oImg.src = arr[num];
+			oP2.innerHTML = arr1[num];
+			oP1.innerHTML = num+1 +'/' + arr.length;
+		}
+	}
+	oBtn2.onclick = function(){ 
+		oSpan.innerHTML = '图片不能从最后一张到第一张';
+		oPrev.onclick = function(){
+			if( num>=1){
+				num --;
+				oImg.src = arr[num]; 
+				oP2.innerHTML = arr1[num];
+				oP1.innerHTML = num+1 +'/' + arr.length;
+			}
+			else 
+				alert( " 已经是第一张啦");
+		}
+		oNext.onclick = function(){
+			if( num<=2){
+				num ++; 
+				oImg.src = arr[num];
+				oP2.innerHTML = arr1[num];
+				oP1.innerHTML = num+1 +'/' + arr.length;
+			}
+			else 
+				alert( " 已经是最后一张啦");	
+		}
+	}
+		
+		
+	
+}
+	
+</script>
+
+</head>
+<body>
+
+
+<div class="all">
+	<div id="div1" style="width:100%;text-align:center">
+    	<hr/>
+        <input id="Btn1" type="button" value="循环切换"/>
+        <input id="Btn2" type="button" value="顺序切换"/>
+        <span id="span1" style="display:block; height:20px; line-height:20px; text-align:center;">图片可以从最后一张到第一张</span>
+    </div>
+    <div id="div2">
+    	<p id="p1">1/4</p>
+        <a href="#" id="prev"><</a>
+        <a href="#" id="next">></a>
+        <img id="img1" src="img/1.jpg"/>
+        <p id="p2">第一张</p>
+    </div>
+</div>
+
+
+
+</body>
+</html>

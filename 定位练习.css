@@ -1,0 +1,32 @@
+/* CSS Document */
+
+body,ul,p,h2,h3{ margin:0; padding:0; font-family:"宋体";}
+img{ border:none; vertical-align:top;}
+li{ list-style:none;}
+a{ text-decoration:none;}
+.clear{ zoom:1;}
+.clear::after{ display:table; clear:both; content:"";}
+
+
+.warp{ width:600px; background:#fff; margin:0 auto;}
+.top{ background:#eaf9fe; width:600px;}
+.top h2{ line-height:30px; font-size:14px; color:#000; text-indent:10px; float:left;}
+.top a{ line-height:30px; font-size:12px; color:#666762;float:right;}
+
+.left{ padding-top:15px; float:left;}
+.left .pic{ width:290px; height:230px;}
+.pic strong{ line-height:30px; color:#333333;font-size:14px; display:block;}
+
+.list{ padding-top:53px;}
+.list li{ line-height:20px; font-size:12px; color:#000; text-indent:8px; background:url(%E4%BD%9C%E4%B8%9A%E5%9B%BE%E7%89%87/lesson6%20%E4%BD%9C%E4%B8%9A1/%E8%B0%8D%E6%88%9855.gif) no-repeat 1px 8px;}
+
+.right1{ float:left; width:128px;padding-top:3px; padding-left:24px; height:387px;}
+.bg{ background: url(%E4%BD%9C%E4%B8%9A%E5%9B%BE%E7%89%87/lesson6%20%E4%BD%9C%E4%B8%9A1/%E5%AE%9A%E4%BD%8D33.gif) no-repeat 0 121px,url(%E4%BD%9C%E4%B8%9A%E5%9B%BE%E7%89%87/lesson6%20%E4%BD%9C%E4%B8%9A1/%E5%AE%9A%E4%BD%8D44.gif) no-repeat 66px 121px;}
+.rightpic{width:128px; height:121px; padding-top:12px;}
+.rightpic a{ line-height:34px; font-size:12px; color:#333333;}
+
+.right2{ float:left; width:128px;padding-top:3px; padding-left:29px; height:387px;}
+
+.dingwei{ position:absolute; right:0; bottom:0; width:278px; height:179px; border:1px solid #909090; background:#ffffff;}
+.dingwei h3{ color:blue; font-size:14px; line-height:22px; text-indent:10px;}
+.dingwei p{  color:#909090; font-size:12px; line-height:20px; text-indent:10px;}

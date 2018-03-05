@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>  图片切换综合 </title>
+</head>
+<style>
+dody,ul{ margin:0; padding:0;}
+a{ text-decoration:none;}
+img{ vertical-align:top; margin:0; padding:0;}
+.ul1{ position:absolute; bottom:20px; width:180px; margin:0 160px;}
+li{ list-style:none;  float:left; margin:0 10px;position:relative;}
+li a{display:block; width:20px; height:20px; background: #6F6;}
+.ul1 .active{ background:#690;}
+em{font-style:normal; display:block; width:40px; height:40px; background:#999; color:#FFF; font-weight:bold; line-height:40px; text-align:center; font-size:24px; position:absolute; top:230px; opacity:0.5;filter:Alpha(opacity=50);cursor:pointer; }
+img{ width:400px; height:400px; margin:50px;}
+#div1{ width:500px; height:500px;margin:50px auto; position:relative; background:#6FF;}
+.span{ width:50px; height:50px;position:absolute; background:#FF9; top:-50px; left:0; display:none;  background-size:100% 100%;}
+.clear{ zoom:1;}
+.clear::after{ content:""; clear:both; display:table;}
+</style>
+<body>
+<div id="div1">
+	<img src="img/1.png"/>
+    <em><</em>
+    <em>></em>
+    <div></div>
+    <ul class="ul1">
+    	<li>
+        	<a href="#" class="active">
+            	<span></span>
+                <span class="span"></span>
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+                <span></span>
+                <span class="span"></span>
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+                <span></span>
+                <span class="span"></span>
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+                <span></span>
+                <span class="span"></span>
+            </a>
+        </li>
+    </ul>
+    
+	
+</div>
+</body>
+
+<script>
+	var oDiv = document.getElementById('div1');
+	var aEm = oDiv.getElementsByTagName('em');
+	var aA = oDiv.getElementsByTagName('a');
+	var oImg = oDiv.getElementsByTagName('img')[0];
+	var arrImg = ['img/1.png','img/2.png','img/3.png','img/4.png']
+	var num = 0;
+	aEm[0].style.left = '70px';
+	aEm[1].style.right = '70px';
+	
+	aEm[0].onclick = function (){
+		if(num == 0) num = arrImg.length; 
+		num--;
+		oImg.src=arrImg[num];
+		for(i=0;i<arrImg.length;i++)
+			aA[i].className='';
+		aA[num].className='active';	
+	}
+	aEm[1].onclick = function (){
+		if(num == arrImg.length-1) num = -1; 
+		num++;
+		oImg.src=arrImg[num];
+		for(i=0;i<arrImg.length;i++)
+			aA[i].className='';
+		aA[num].className='active';	
+	} // 箭头控制图片切换
+	
+	for(i=0;i<aA.length;i++){
+		aA[i].index = i;
+		aA[i].onmouseover = function(){
+			var aSpan = this.getElementsByTagName('span')[1];
+			aSpan.style.display= 'block';
+			aSpan.style.backgroundImage= 'url(' +arrImg[this.index]+ ')';
+		}
+		aA[i].onmouseout = function(){
+			var aSpan = this.getElementsByTagName('span')[1];
+			aSpan.style.display= 'none';
+		}
+		aA[i].onclick = function(){
+			oImg.src = arrImg[this.index];
+			for(i=0;i<arrImg.length;i++)
+				aA[i].className='';
+			this.className='active';	
+		}
+	}// 下方小块控制图片切换
+	
+	
+</script>
+</html>

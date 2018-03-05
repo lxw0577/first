@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js练习1</title>
+<style>
+p{ margin:0;padding:0;}
+.div1{width:80px; height:40px;  background:#F00;cursor: pointer; }
+.div1 p{ text-align:center; line-height:40px;}
+.div2{ width:100px; height:100px; border:5px solid #000; background:#FFF;}
+.div3{ position:absolute; height:100%; width:100%; background:#000; opacity:0.5; top:0; left:0; display:none;}
+.div4{ position:absolute; height:200px; width:400px; background:#FFF; border:2px solid #000; top:50%;left:50% ; margin-top:-102px; margin-left:-202px; display:none; }
+.div4 div,.div4 p{ float:left; margin-left:20px; display:block;text-align:center;line-height:30px;  }
+</style>
+</head>
+<body>
+    <h2> 请为下面的div添加样式：</h2>
+    <div id="div1" class="div1">
+        <p>设置</p>
+    </div>
+	<div id="div2" class="div2"></div>
+    <div id="div3" class="div3"></div>
+    <div id="div4" class="div4">
+    	<p>请选择背景颜色：</p>
+        <div  id="div5" style="background:red; width:30px; height:30px;">红</div>
+        <div id="div6"  style="background:yellow; width:30px; height:30px;">黄</div>
+        <div  id="div7" style="background:blue; width:30px; height:30px;">蓝</div>
+        <p>请选择宽（px）：</p>
+        <div  id="div8" style="background:#FFF; width:30px; height:30px;">150</div>
+        <div  id="div9" style="background:yellow; width:30px; height:30px;">200</div>
+        <div  id="div10" style="background:blue; width:30px; height:30px;">300</div>
+        <p>请选择高（px）：</p>
+        <div  id="div11" style="background:red; width:30px; height:30px;">150</div>
+        <div  id="div12" style="background:yellow; width:30px; height:30px;">200</div>
+        <div  id="div13" style="background:blue; width:30px; height:30px;">300</div>
+        <div id="div14" class="div14"> 重置</div>
+        <div id="div15" class="div15"> 确定</div>
+    </div>
+    <script>
+    	var div1 = document.getElementById('div1');
+		var div2 = document.getElementById('div2');
+		var div3 = document.getElementById('div3');
+		var div4 = document.getElementById('div4');
+		var div5 = document.getElementById('div5');
+		var div6 = document.getElementById('div6');
+		var div7 = document.getElementById('div7');
+		var div8 = document.getElementById('div8');
+		var div9 = document.getElementById('div9');
+		var div10 = document.getElementById('div10');
+		var div11 = document.getElementById('div11');
+		var div12 = document.getElementById('div12');
+		var div13 = document.getElementById('div13');
+		var div14 = document.getElementById('div14');
+		var div15 = document.getElementById('div15');
+		
+		div1.onclick = show;
+		div5.onclick = function(){ div2.style.background='red';};
+		div6.onclick = function(){ div2.style.background='yellow';};
+		div7.onclick = function(){ div2.style.background='blue';};
+		div8.onclick = function(){ div2.style.width='150px';};
+		div9.onclick = function(){ div2.style.width='200px';};
+		div10.onclick = function(){ div2.style.width='300px';};
+		div11.onclick = function(){ div2.style.height='150px';};
+		div12.onclick = function(){ div2.style.height='200px';};
+		div13.onclick = function(){ div2.style.height='300px';};
+		div14.onclick = function(){ div2.style.height='100px';div2.style.width='100px';div2.style.background='#fff';};
+		div15.onclick = function(){ div3.style.display = 'none';
+			div4.style.display = 'none';};
+		function show(){
+			div3.style.display = 'block';
+			div4.style.display = 'block';
+		};
+    </script>
+</body>
+</html>

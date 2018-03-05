@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.div1{ width:100px; height:100px; background:red; position:absolute; top:20px; opacity:1;}
+</style>
+</head>
+<body>
+</body>
+<script src="js计时器 移动，透明度渐变.js">
+</script>
+<script>
+
+var str="";
+var len = 10;
+var timer = null;
+var num = 0;
+for(var i=0;i<len;i++){
+	str += '<div class="div1" style = " left:'+i*120+'px"></div>' ;
+}
+document.body.innerHTML = str;
+var aDiv= document.getElementsByTagName('div');
+document.onclick = function(){
+	
+	
+	if( parseInt(getStyle(aDiv[len-1],'top')) ==20 && parseInt(getStyle(aDiv[0],'top'))==20 ){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			doMove(aDiv[num] , 'top' , 20 , 500);
+			opacity(aDiv[num] , 2 , 20);
+			num++;
+			if(num === len)
+				clearInterval(timer);
+		},100)
+	}else if( parseInt(getStyle(aDiv[len-1],'top')) ==500 && parseInt(getStyle(aDiv[0],'top'))==500){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			doMove(aDiv[num-1] , 'top' , 20 , 20);
+			opacity(aDiv[num-1] , 2 , 100);
+			num--;
+			if(num === 0)
+				clearInterval(timer);
+		},100)
+	}else{}
+}
+
+/*function doMove( obj , attr ,dir , target ,endFn){
+	clearInterval(obj.timer);
+	dir = parseInt(getStyle( obj, attr )) < target ? dir : -dir;
+	
+	obj.timer = setInterval(function(){
+	
+		
+		var speed = parseInt(getStyle( obj, attr )) + dir;
+		
+		if(speed > target && dir > 0 ||  speed < target && dir < 0  )
+			speed = target;
+			
+		obj.style[attr] = speed + 'px';
+		
+		if(speed === target)
+			clearInterval(obj.timer);
+		
+		endFn && endFn();
+	},30)
+}
+
+function getStyle ( obj, attr ) { 
+	return obj.currentStyle?obj.currentStyle[attr] : getComputedStyle( obj )[attr]; 
+}
+function opacity(obj,speed,target,endFn){
+	clearInterval(obj.timerOp);
+	var alpha= getStyle( obj, 'opacity' )*100;
+	
+	obj.timerOp = setInterval ( function(){
+		var sp=0;
+		if(target>alpha) {
+			var sp=speed ;
+		}else{
+			sp=-speed;
+		}
+		alpha += sp;
+		if((alpha <= target && sp<0) || (alpha >= target && sp>0 ))
+		 	alpha = target; 
+		
+		if(alpha == target){
+			clearInterval(obj.timerOp);
+        }else{
+			obj.style.filter = 'alpha(opacity='+alpha+')';
+        	obj.style.opacity = alpha/100;
+        }
+	},30)
+	endFn&&endFn();
+}*/
+</script>
+</html>

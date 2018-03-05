@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js节点操作</title>
+<script type="text/javascript" src="jquery-1.10.1.min.js">
+</script>
+</head>
+
+<body>
+<input type="text" id="text1"/>
+<input type="button" value="留言"  id="btn2"/>
+<input type="button" value="删除"  id="btn3"/>
+<ul></ul>
+
+<script>
+	$('#btn2').click(function(){
+		$('ul').prepend('<li>'+ $('#text1').val() +'</li>')
+		
+		$('li').eq( $(this).index()-1 ).append('<a href="javascript:;">删除</a>')
+		$('a').click(function(){
+			$(this).parent().remove();
+		})
+		if($('li').length > 5){
+			$('li').last().remove();
+		}
+	})
+	function removeForm(){
+		$('li input').remove();
+		$('#btn4').remove();
+		$('#btn5').remove();	
+	}
+	$('#btn3').click(function(){
+		removeForm();
+		if($('li').size()!=0){
+			$('li').prepend('<input type="radio" />');
+			$('body').append('<input type="button" value="确认删除" id="btn4"/>');
+			$('body').append('<input type="button" value="取消删除" id="btn5"/>');
+		}
+	})
+	$('body').on('click','#btn4',function(){
+		
+		if($('li input:checked').size()!=0){
+			$('li input:checked').parent().remove();
+		}
+		removeForm();
+	})
+	$('body').on('click','#btn5',function(){
+		removeForm();
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ margin:0; padding:0; }
+#div1{ width:352px; height:260px;  padding:10px; position:relative; }
+span{ display:block; float:left; width:50px; height:30px; line-height:30px; text-align:center; background:#FCF; border:1px solid #F93;}
+img{ vertical-align:top; border:none; width:300px; height:230px; position:absolute; left:10px;top:40px;}
+div em{ font-style:normal;display:block; width:50px; height:30px; line-height:30px; text-align:center;border:1px solid #F93; background:#FCF; }
+div div{width:52px; height:118px;position:absolute; left:310px; top:40px; }
+
+</style>
+
+</head>
+
+<body>
+<div id="div1">
+    <span>菜单1</span>
+    <span>菜单2</span>
+    <img src="img/1.png"/>
+    <div>
+        <em>tu1</em>
+        <em>tu2</em>
+        <em>tu3</em>
+        <em>tu4</em>
+    </div>
+</div>
+
+
+
+</body>
+<script>
+	var oDiv = document.getElementById('div1');
+	var aSpan = oDiv.getElementsByTagName('span');
+	var oImg = oDiv.getElementsByTagName('img')[0];
+	var aEm = oDiv.getElementsByTagName('em');
+	var arrImg = ['img/1.png','img/2.png','img/3.png','img/4.png','img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+	var num = 0;
+	var timer = null;
+	var menu = 0;
+	function fnTab(){
+		timer = setInterval(function(){
+			if(num<aEm.length){
+				aSpan[0].style.backgroundColor = 'red';
+				aSpan[1].style.backgroundColor = '#FCF';
+			}else{
+				aSpan[1].style.backgroundColor = 'red';
+				aSpan[0].style.backgroundColor = '#FCF';
+			}
+			for(var i=0;i<aEm.length; i++)
+				aEm[i].style.backgroundColor = '#FCF';
+			aEm[num%aEm.length].style.backgroundColor = 'red';
+			oImg.src=arrImg[num];
+			num++;
+			num %= arrImg.length;
+		},1000);
+	}
+	fnTab();
+	oImg.onmouseover = fnStop;
+	oImg.onmouseout = fnGo;
+	for(var i=0;i<aEm.length; i++){
+		aEm[i].onmouseover = fnStop;
+		aEm[i].onmouseout = fnGo;
+	}
+	function fnStop(){
+		clearInterval(timer);
+	}
+	function fnGo(){
+		fnTab();
+	}
+	for(var i=0;i<aEm.length; i++){
+		aEm[i].index = i;
+		aEm[i].onclick = function(){
+			oImg.src=arrImg[this.index+menu*aEm.length];
+			num = this.index+menu*aEm.length;
+			for(var i=0;i<aEm.length; i++)
+				aEm[i].style.backgroundColor = '#FCF';
+			this.style.backgroundColor = 'red';
+		}
+	}
+	for(var i=0;i<aSpan.length; i++){
+		aSpan[i].index = i;
+		aSpan[i].onclick = function(){
+			if(num<4){
+				num=aEm.length;
+			}
+			if(num>4){
+				num=0;	
+			}
+			for(var i=0;i<aSpan.length; i++)
+				aSpan[i].style.backgroundColor = '#FCF';
+			menu = this.index;
+			this.style.backgroundColor = 'red';
+		}
+	}
+</script>
+
+
+</html>

@@ -1,0 +1,27 @@
+/* CSS Document */
+body, p, h1, h2, h3, h4, h5, h6, dl, dd {
+	margin: 0;
+	font-size: 12px;
+	font-family: 宋体;
+}
+h3{ line-height:12px; font-weight:normal;}
+a{ text-decoration:none; color:#000; float:left;}
+ul{ list-style:none; margin:0;padding: 0;}
+img{ border:none; vertical-align:top;}
+li{ list-style:none; float:left; font-size:12px; color:#000; margin:0;vertical-align:top;}
+.clear{ zoom:1;}
+.clear:after{ content:""; display:table; clear:both;}
+.box{ margin:0 auto; padding:16px 19px 5px 19px; border:1px solid #d9d9d9; width:610px;}
+
+.boxtop{ width:635px;height:26px; padding-right:5px; }
+.boxtop div{ float:left; padding-right:14px; margin:0;}
+
+.topright{padding:14px 5px 0 0; margin:0;float:left;width:500px}
+.list{ float:left;}
+.list1{ float:right;}
+
+.boxbottom{ padding:20px 0px 20px 0; }
+.boxbottom li{ padding-bottom:20px;}
+.pic{ padding:20px 0px 10px 0px;}
+li a{ padding:0 18px 0 0;}
+.boxbottom li div{ margin:0; padding:0 10px 15px 0;}

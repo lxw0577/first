@@ -1,0 +1,12 @@
+/* CSS Document */
+
+body{ margin:0;}
+.box{ width:400px; margin:0 auto; border:10px #FF33FF solid; }
+.clear{ zoom:1;}
+.clear:after{ content:""; display:table; clear:both;}
+.box div{ margin:0;}
+
+.box1{  height:298px; width:298px; background:red; border:solid 1px #000000; float:left;}
+.box2{  height:98px; width:98px; background:blue; border:solid 1px #000000; float:left;}
+
+.box3{  height:98px; width:98px; background:#9F3; border:solid 1px #000000; float:right;}

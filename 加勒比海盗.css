@@ -1,0 +1,18 @@
+/* CSS Document */
+
+body,ul,h2,h3,p{ margin:0; padding:0; font-family:"宋体";}
+li{ list-style:none;}
+img{ vertical-align:top; border:none;}
+a{ text-decoration:none;}
+.warp{ margin:50px auto; padding:0; width:366px; background:#f4fafb;}
+.head{ height:23px; background: url(%E4%BD%9C%E4%B8%9A%E5%9B%BE%E7%89%87/lesson6%20%E4%BD%9C%E4%B8%9A1/%E8%83%8C%E6%99%AF11.gif) no-repeat;}
+.title{ background: url(%E4%BD%9C%E4%B8%9A%E5%9B%BE%E7%89%87/lesson6%20%E4%BD%9C%E4%B8%9A1/%E8%83%8C%E6%99%AF22.gif) no-repeat 6px 4px; line-height:22px; font-size:12px; padding-left:30px; color:#294852;}
+.list{padding:0 7px 2px 5px;}
+.list li{padding:13px 0 9px 0; vertical-align:top;}
+.clear{ zoom:1;}
+.clear::after{ display:table; clear:both; content:"";}
+.list .pic{ width:95px; height:60px; float:left; padding:2px; border:1px solid #c8c4d3; background:#fff;}
+.list .text{ width:240px; float:right;}
+.text h3{ color:#333333; font-size:12px; line-height:24px;}
+.text p{ color:#666666;font-size:12px;line-height:20px;}
+.text p a{ color:#666666;}

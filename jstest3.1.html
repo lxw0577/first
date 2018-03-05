@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+body,ul{ padding:0; margin:0;}
+img{ width:100px;height:100px;vertical-align:top; }
+.div1{ width:100px;height:100px; border-bottom:5px solid #fff;border-right:5px solid #fff; position:absolute;top:-105px; background:#00F; display:none; }
+li{ list-style:none; float:left; border-bottom:5px white solid;border-right:5px white solid; position:relative;}
+.clear{ zoom:1;margin:200px auto 0; width:420px;}
+.clear::after{ content:"";display:table; clear:both;}
+</style>
+
+<body>
+<div  class="clear">
+	<ul id="ul1">
+        <li><img src="img/1.jpg"/><div></div><div class="div1"></div></li>
+        <li><img src="img/2.jpg"/><div></div><div class="div1"></div></li>
+        <li><img src="img/3.jpg"/><div></div><div class="div1"></div></li>
+        <li><img src="img/4.jpg"/><div></div><div class="div1"></div></li>
+        <li><img src="img/1.jpg"/><div></div><div class="div1"></div></li>
+        <li><img src="img/2.jpg"/><div></div><div class="div1"></div></li>
+        <li><img src="img/3.jpg"/><div></div><div class="div1"></div></li>
+        <li><img src="img/4.jpg"/><div></div><div class="div1"></div></li>
+	</ul>
+</div>
+</body>
+<script>
+
+
+	var oUl = document.getElementById('ul1');
+	var aLi = oUl.getElementsByTagName('li');
+	for(var i=0;i<aLi.length ;i++){
+		aLi[i].onmouseover = function fn(){
+			this.getElementsByTagName('div')[1].style.display= 'block' ;
+		}
+		aLi[i].onmouseout = function(){
+			this.getElementsByTagName('div')[1].style.display= 'none' ;
+		}
+		
+	}
+	/*for( var i=0; i<aLi.length; i++ ){
+		aLi[i].onmouseover = function (){
+			that = this;
+			fn1();
+		};
+		aLi[i].onmouseout = function (){
+			this.getElementsByTagName('div')[0].style.display = 'none';
+		};
+	}
+	
+	function fn1(){
+		that.getElementsByTagName('div')[0].style.display = 'block';
+	}*/
+</script>
+</html>
